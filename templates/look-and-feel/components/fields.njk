@@ -84,7 +84,10 @@
           <input id="{{ field.id }}-{{ option_value }}"
                  type="{{ type }}"
                  name="{{ field.id }}"
-                 {% if field.value == option_value %}
+                 {% if option_value in field.value and type == 'checkbox' %}
+                 checked="checked"
+                 {% endif %}
+                 {% if field.value == option_value and type == 'radio' %}
                  checked="checked"
                  {% endif %}
                  {% if option_disabled %}
